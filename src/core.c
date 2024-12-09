@@ -144,6 +144,19 @@ void rebx_register_default_params(struct rebx_extras* rebx){
     rebx_register_param(rebx, "lt_p_haty", REBX_TYPE_DOUBLE);
     rebx_register_param(rebx, "lt_p_hatz", REBX_TYPE_DOUBLE);
     rebx_register_param(rebx, "lt_c", REBX_TYPE_DOUBLE);
+
+
+    rebx_register_param(rebx, "C20", REBX_TYPE_DOUBLE);
+    rebx_register_param(rebx, "C22", REBX_TYPE_DOUBLE);
+    rebx_register_param(rebx, "wPrim", REBX_TYPE_DOUBLE);
+
+    rebx_register_param(rebx, "m_sun", REBX_TYPE_DOUBLE);
+    rebx_register_param(rebx, "a_sun", REBX_TYPE_DOUBLE);
+    rebx_register_param(rebx, "e_sun", REBX_TYPE_DOUBLE);
+    rebx_register_param(rebx, "i_sun", REBX_TYPE_DOUBLE);
+    rebx_register_param(rebx, "Omega_sun", REBX_TYPE_DOUBLE);
+    rebx_register_param(rebx, "omega_sun", REBX_TYPE_DOUBLE);
+    rebx_register_param(rebx, "T_peri", REBX_TYPE_DOUBLE);
 }
 
 void rebx_register_param(struct rebx_extras* const rebx, const char* name, enum rebx_param_type type){
@@ -347,6 +360,14 @@ struct rebx_force* rebx_load_force(struct rebx_extras* const rebx, const char* n
     else if (strcmp(name, "lense_thirring") == 0){
         force->update_accelerations = rebx_lense_thirring;
         force->force_type = REBX_FORCE_VEL;
+    }
+    else if (strcmp(name, "gravity_second_order") == 0){
+        force->update_accelerations = rebx_gravity_second_order;
+        force->force_type = REBX_FORCE_POS;
+    }
+    else if (strcmp(name, "solar_tides") == 0){
+        force->update_accelerations = rebx_solar_tides;
+        force->force_type = REBX_FORCE_POS;
     }
     else{
         char str[300];
