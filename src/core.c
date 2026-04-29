@@ -378,7 +378,7 @@ struct rebx_force* rebx_load_force(struct rebx_extras* const rebx, const char* n
     else if (strcmp(name, "tides_dynamical") == 0){
         force->update_accelerations = rebx_tides_dynamical;
         force->force_type = REBX_FORCE_VEL;
-
+    }
     else if (strcmp(name, "gravity_second_order") == 0){
         force->update_accelerations = rebx_gravity_second_order;
         force->force_type = REBX_FORCE_POS;

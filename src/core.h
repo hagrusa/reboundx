@@ -82,7 +82,7 @@ void rebx_gas_dynamical_friction(struct reb_simulation* const sim, struct rebx_f
 void rebx_lense_thirring(struct reb_simulation* const sim, struct rebx_force* const force, struct reb_particle* const particles, const int N);
 void rebx_tides_dynamical(struct reb_simulation* const sim, struct rebx_force* const force, struct reb_particle* const particles, const int N);
 void rebx_gravity_second_order(struct reb_simulation* const sim, struct rebx_force* const force, struct reb_particle* const particles, const int N);
-void rebx_solar_tides(struct reb_simulation* const sim, struct rebx_force* const force, struct reb_particle* const particles);
+void rebx_solar_tides(struct reb_simulation* const sim, struct rebx_force* const force, struct reb_particle* const particles, const int N);
 
 /****************************************
  Operator prototypes

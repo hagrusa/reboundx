@@ -97,7 +97,7 @@ static void rebx_calculate_solar_tides(struct reb_simulation* const sim, struct 
     }
 }
 
-void rebx_solar_tides(struct reb_simulation* const sim, struct rebx_force* const force, struct reb_particle* const particles){
+void rebx_solar_tides(struct reb_simulation* const sim, struct rebx_force* const force, struct reb_particle* const particles, const int N){
     /* default values */
     double* m_sun = rebx_get_param(sim->extras, force->ap, "m_sun");
     if (m_sun == NULL){
